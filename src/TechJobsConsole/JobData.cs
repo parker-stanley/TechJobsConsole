@@ -58,17 +58,18 @@ namespace TechJobsConsole
             return jobs;
         }
 
-        public static List<Dictionary<string, string>> FindByValue(string value)
+        public static List<Dictionary<string, string>> FindByValue(string value, string[] allChoices)
         {
             LoadData();
 
             List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
+            int numOfColumns = AllJobs.Count;
 
             foreach (Dictionary<string, string> row in AllJobs)
             {
                 for (int i = 0; i < row.Count; i++)
                 {
-                    string aValue = row[i].ToLower();
+                    string aValue = row[i].ToLower(); //in the FindValueByColumn method the "i" value I have here is a column header, I think I need to find a way to iterate through the columns
 
                     if (aValue.Contains(value))
                     {

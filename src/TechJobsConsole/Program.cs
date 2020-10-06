@@ -113,7 +113,6 @@ namespace TechJobsConsole
                 }
 
             } while (!isValidChoice);
-
             return choiceKeys[choiceIdx];
         }
 
