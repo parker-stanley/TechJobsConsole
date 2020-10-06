@@ -56,7 +56,7 @@ namespace TechJobsConsole
 
                     // What is their search term?
                     Console.WriteLine("\nSearch term: ");
-                    string searchTerm = Console.ReadLine();
+                    string searchTerm = Console.ReadLine().ToLower();
 
                     List<Dictionary<string, string>> searchResults;
 
@@ -118,15 +118,21 @@ namespace TechJobsConsole
 
         private static void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
-            foreach (Dictionary<string, string> job in someJobs)
+            if (someJobs.Count >= 1)
             {
-                Console.WriteLine("******");
-                foreach (KeyValuePair<string, string> item in job)
+                foreach (Dictionary<string, string> job in someJobs)
                 {
-                    Console.WriteLine("{0}: {1}", item.Key, item.Value);
+                    Console.WriteLine("******");
+                    foreach (KeyValuePair<string, string> item in job)
+                    {
+                        Console.WriteLine("{0}: {1}", item.Key, item.Value);
+                    }
+                    Console.WriteLine("******");
+                    Console.WriteLine("\n");
                 }
-                Console.WriteLine("******");
-                Console.WriteLine("\n");
+            } else
+            {
+                Console.WriteLine("\nNo results.");
             }
         }
     }
