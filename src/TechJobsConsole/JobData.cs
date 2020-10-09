@@ -8,12 +8,14 @@ namespace TechJobsConsole
     class JobData
     {
         static List<Dictionary<string, string>> AllJobs = new List<Dictionary<string, string>>();
+        static List<Dictionary<string, string>> AllJobsCopy = new List<Dictionary<string, string>>();
         static bool IsDataLoaded = false;
 
         public static List<Dictionary<string, string>> FindAll()
         {
             LoadData();
-            return AllJobs;
+            AllJobsCopy = AllJobs;
+            return AllJobsCopy;
         }
 
         /*
