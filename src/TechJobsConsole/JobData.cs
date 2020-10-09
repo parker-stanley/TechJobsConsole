@@ -71,10 +71,9 @@ namespace TechJobsConsole
                 for (int i = 0; i < keys.Count; i++)
                 {
                     string column = keys[i];
-                    if (row[column].Contains(value))
+                    if (row[column].ToLower().Contains(value))
                     {
                         jobs.Add(row);
-                        break;
                     }
                 }
             }
